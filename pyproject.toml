@@ -1,7 +1,7 @@
 [project]
 name = "aidjango"
-version = "0.1.0"
-description = "Add your description here"
+dynamic = ["version"]
+description = "An AI-Generated Django Project"
 readme = "README.md"
 authors = [
     { name = "Andreas Werdich", email = "andreas_werdich@hms.harvard.edu" }
@@ -13,5 +13,23 @@ dependencies = []
 aidjango = "aidjango:main"
 
 [build-system]
-requires = ["uv_build>=0.11.7,<0.12.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=41, <81", 
+            "wheel", 
+            "setuptools-git-versioning>=2.0,<3"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+python-preference = "system"
+
+[tool.setuptools.package-data]
+# include VERSION file to a package
+aidjango = ["VERSION"]
+
+[tool.setuptools]
+# this package will read some included files in runtime, avoid installing it as .zip
+zip-safe = false
+
+[tool.setuptools-git-versioning]
+enabled = true
+version_file = "aidjango/VERSION"
+
