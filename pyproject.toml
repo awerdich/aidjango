@@ -7,7 +7,11 @@ authors = [
     { name = "Andreas Werdich", email = "andreas_werdich@hms.harvard.edu" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "jupyterlab>=4.5.6",
+    "numpy>=2.4.4",
+    "pandas>=3.0.2",
+]
 
 [project.scripts]
 aidjango = "aidjango:main"
